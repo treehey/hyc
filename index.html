@@ -58,6 +58,8 @@
             -webkit-overflow-scrolling: touch;
             margin: 2rem 0;
             position: relative;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
         .slider-container::-webkit-scrollbar {
@@ -65,6 +67,12 @@
         }
 
         .photo-slider {
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
             display: flex;
             height: 100%;
             padding: 0 1rem;
@@ -187,7 +195,7 @@
 
         <!-- 滑动照片区 -->
         <div class="slider-container" id="slider">
-            <div class="photo-slider">
+            <div class="photo-slider" id="slider2">
                 <!-- 最后一张的副本放在最前面 -->
                 <div class="slide"><img src="images/6.jpg"></div>
                 <!-- 原始7张 -->
@@ -210,7 +218,7 @@
     <audio src="hdb.mp3" autoplay loop id="song"></audio>
 
     <script>
-        const slider = document.getElementById('slider');
+        const slider = document.getElementById('slider2');
         const photoSlider = document.getElementById('photoSlider');
         const slides = document.querySelectorAll('.slide');
         const totalRealSlides = 7;
