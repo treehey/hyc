@@ -202,7 +202,7 @@
         <!-- 网盘链接 -->
         <a href="https://box.nju.edu.cn/d/e8ffbd52d7874193b37c/" class="cloud-link" target="_blank">获取完整相册集</a>
     </div>
-    <audio src="hdb.mp3" autoplay loop></audio>
+    <audio src="hdb.mp3" autoplay loop id="song"></audio>
 
     <script>
         const slider = document.getElementById('slider');
@@ -314,9 +314,10 @@
                 document.body.appendChild(div);
             }
         }
-
+        const song = document.getElementById('song');
         // 初始化
         window.onload = () => {
+            song.play();
             initSlider();
             createFallingPhotos();
             createConfetti();
