@@ -190,7 +190,8 @@
             <div class="photo-slider">
                 <!-- 最后一张的副本放在最前面 -->
                 <div class="slide"><img src="images/6.jpg"></div>
-                <!-- 原始6张 -->
+                <!-- 原始7张 -->
+                <div class="slide"><img src="images/0.jpg"></div>
                 <div class="slide"><img src="images/1.jpg"></div>
                 <div class="slide"><img src="images/2.jpg"></div>
                 <div class="slide"><img src="images/3.jpg"></div>
@@ -198,7 +199,7 @@
                 <div class="slide"><img src="images/5.jpg"></div>
                 <div class="slide"><img src="images/6.jpg"></div>
                 <!-- 第一张的副本放在最后 -->
-                <div class="slide"><img src="images/1.jpg"></div>
+                <div class="slide"><img src="images/0.jpg"></div>
             </div>
         </div>
         <div class="indicator" id="indicator"></div>
@@ -212,7 +213,7 @@
         const slider = document.getElementById('slider');
         const photoSlider = document.getElementById('photoSlider');
         const slides = document.querySelectorAll('.slide');
-        const totalRealSlides = 6;
+        const totalRealSlides = 7;
         const totalSlides = slides.length;
         let currentIndex = 1;
         let isAnimating = false;
@@ -282,7 +283,7 @@
         // 创建飘落照片
         function createFallingPhotos() {
             const photos = [
-                'images/1.jpg', 'images/2.jpg', 'images/3.jpg',
+                'images/0.jpg','images/1.jpg', 'images/2.jpg', 'images/3.jpg',
                 'images/4.jpg', 'images/5.jpg', 'images/6.jpg'
             ];
 
