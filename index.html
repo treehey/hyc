@@ -33,8 +33,7 @@
         }
 
         .container {
-            padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 
-                     max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+            padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
             position: relative;
         }
 
@@ -134,8 +133,13 @@
         }
 
         @keyframes float {
-            0% { transform: translateY(-120vh) rotate(0deg); }
-            100% { transform: translateY(120vh) rotate(360deg); }
+            0% {
+                transform: translateY(-120vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(120vh) rotate(360deg);
+            }
         }
 
         /* 隐藏滚动条 */
@@ -217,11 +221,11 @@
         function initSlider() {
             const slideWidth = slider.offsetWidth;
             slider.scrollLeft = slideWidth;
-            
+
             // 初始化指示器
             const indicator = document.getElementById('indicator');
             indicator.innerHTML = '';
-            for(let i = 0; i < totalRealSlides; i++) {
+            for (let i = 0; i < totalRealSlides; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'dot' + (i === 0 ? ' active' : '');
                 indicator.appendChild(dot);
@@ -231,7 +235,7 @@
         // 新的滚动处理逻辑
         function handleScroll() {
             if (isAnimating) return;
-            
+
             const slideWidth = slider.offsetWidth;
             const scrollPos = slider.scrollLeft;
             const maxScroll = slideWidth * (totalRealSlides + 1);
@@ -247,14 +251,14 @@
             else {
                 currentIndex = Math.round(scrollPos / slideWidth);
             }
-            
+
             // 更新当前活动卡片
             const activeIndex = Math.round(scrollPos / slideWidth);
             slides.forEach((slide, index) => {
                 slide.classList.toggle('active', index === activeIndex);
             });
-            
-            
+
+
             updateIndicator();
             isAnimating = false;
         }
@@ -317,7 +321,6 @@
         const song = document.getElementById('song');
         // 初始化
         window.onload = () => {
-            song.play();
             initSlider();
             createFallingPhotos();
             createConfetti();
@@ -357,6 +360,9 @@
         }
         window.addEventListener('load', () => {
             document.querySelector('.loader').remove();
+        });
+        window.addEventListener('click', () => {
+            song.play();
         });
     </script>
 </body>
